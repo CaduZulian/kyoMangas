@@ -1,0 +1,48 @@
+.homePage{
+  padding: 1.25rem;
+  overflow-y: scroll;
+  height: calc(100vh - 7.7rem);
+  font-family: Roboto, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+    
+
+  .contentArea{
+    border-top: 2px solid var(--gray-100);
+  }
+
+  .topics{
+    
+    width: 75%;
+
+    p{
+      margin: 1rem 0;
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+
+      .titleTopic{
+        padding: 0 0.625rem;
+      }
+    }
+    
+    .ImBooks{
+      position: relative;
+      background-color: var(--green-50);
+      padding: 0.625rem;
+      border-radius: 35%;
+      color: var(--black);
+    }
+
+    span{
+      display: inline-block;
+      position: relative;
+      margin-right: 1.25rem;
+      margin-bottom: 1.25rem;
+      width: 17.95%;
+      height: 14.375rem;
+      background: var(--gray-100);
+      color: var(--black)
+    }
+  }
+}

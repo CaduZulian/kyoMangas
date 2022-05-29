@@ -1,0 +1,230 @@
+.Navbar{
+  height: 5rem;
+  display: flex;
+  padding: 0.1rem 0.5rem;
+  background: var(--black);
+  align-items: center;
+  //box-shadow: 0px 2px 20px var(--black);
+  
+
+  .alignButtons{
+    position: absolute;
+    left: 28.75%;
+    //right: 28.75%;
+  }
+
+  //Buttons of Navegation bar
+  button{
+    background: var(--black);
+    border: 0px; 
+    font-family: Roboto, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-left: 2rem;
+    color: var(--gray-100);
+    transition: filter 0.3s;
+
+    &:hover{
+      filter: brightness(0.7);
+    }
+  }
+
+  //Search Icon
+  $size: 20px;
+
+  .searchBar {
+    height: auto;
+    width: auto;
+    position: absolute;
+    display: inline-block;
+    top: 2.6rem;
+    right: 5.5rem;
+    transform: translate(0%, -50%);
+    box-sizing: border-box;
+    
+    input {
+      height: 2.75rem;
+      width: 2.75rem;
+      padding: 0.625rem 0.75rem;
+      box-sizing: border-box;
+      font-family: Roboto, sans-serif;
+      font-size: 1.1rem;
+      border: $size/10 solid transparent;
+      border-radius: 2.75rem;
+      cursor: pointer;
+      background-color: transparent;
+      transition: all 0.5s ease-out;
+      
+      color: transparent;
+      &::placeholder {
+        color: transparent;
+      }
+      
+      &:invalid {
+        box-shadow: none;
+      }
+      
+      &:focus, &:valid {
+        width: 14.8rem;
+        outline: none;
+        cursor: auto;
+        background: var(--gray-300);
+        color: var(--gray-800);
+        padding-right: 2.5rem;
+        
+        &::placeholder {
+          color: var(--gray-500);
+        }
+        + .searchIcon {
+          z-index: 0;
+          border-color: var(--gray-500);
+          //right: 20px;
+          
+          &:after {
+            background-color: var(--gray-500);
+          }
+        }
+      }
+    }
+  }
+
+  .searchIcon {
+    display: inline-block;
+    height: $size;
+    width: $size;
+    border-radius: 50%;
+    border: $size/10 solid var(--gray-100);
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    z-index: -1;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: $size/2 + $size/4*1.414 + $size/10;
+      left: $size/2 + $size/4*1.414;
+      transform: rotate(45deg);
+      height: $size/10;
+      width: $size/2;
+      background-color: #FFF;
+      border-radius: 10px;
+    }
+  }
+
+
+  //Hamburger button
+  .menuToggle{
+    display: block;
+    position: absolute;
+    right: 0;
+    padding: 0rem 2rem 0rem 0rem;
+    top: 1.9rem;
+    
+    z-index: 1;
+    
+    -webkit-user-select: none;
+    user-select: none;
+
+    
+
+    a{
+      text-decoration: none;
+      color: var(--gray-800);
+      font-family: Roboto, sans-serif;
+      font-size: 1.4rem;
+      transition: color 0.3s ease;
+
+      &:hover{
+        color: var(--green-200);
+      }
+    }
+
+    input{
+      display: block;
+      width: 40px;
+      height: 32px;
+      position: absolute;
+      top: -7px;
+      left: -5px;
+      
+      cursor: pointer;
+      
+      opacity: 0;
+      z-index: 2; 
+      
+      -webkit-touch-callout: none;
+
+      
+
+      &:checked ~ span{
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: var(--gray-800);
+      }
+
+      &:checked ~ span:nth-last-child(3){
+        opacity: 0;
+        transform: rotate(45deg) scale(0.2, 0.2);
+      }
+
+      &:checked ~ span:nth-last-child(2){
+        transform: rotate(-45deg) translate(0, -1px);
+      }
+
+      &:checked ~ ul{
+        transform: none;
+      }
+    }
+  }
+
+  span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background: var(--gray-100);
+    border-radius: 3px;
+
+    z-index: 1;
+    
+    transform-origin: 4px 0px;
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+
+    &:first-child{
+      transform-origin: 0% 0%;
+    }
+
+    &:nth-last-child(2){
+      transform-origin: 0% 100%;
+    }
+  }
+
+  .menu
+  {
+    position: absolute;
+    width: 200px;
+    margin: -100px 0 0 -225px;
+    padding: 50px;
+    padding-top: 125px;
+    
+    background: var(--gray-100);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+     
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+    li{
+      padding: 10px 0;
+      font-size: 22px;
+    }
+  }
+}
